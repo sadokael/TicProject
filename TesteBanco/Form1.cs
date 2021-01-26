@@ -73,6 +73,7 @@ namespace TesteBanco
         public void addFuncionario(int n)
         {   
             // Atribui os valores nas caixas ás propriedades do funcionário, numéricos parsed a int
+            //campos integer não têm exception handling ainda
             Funcionario f = new Funcionario();
             f.numero = int.Parse(caixaNumero.Text);
             f.nome = caixaNome.Text;
@@ -83,7 +84,7 @@ namespace TesteBanco
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            //faltam validações mais refinadas, para exemplo confirma que as caixas não estão vazias
+            //faltam mais validações, para exemplo confirma só se as caixas não estão vazias
             //pode ocorrer exceção se o número ou idade não forem numéricos
             if (caixaNumero.Text != "" && caixaNome.Text != "" && caixaIdade.Text != "")
             {   
@@ -92,65 +93,50 @@ namespace TesteBanco
 
                 //Boleano para decidir a messageBox a mostrar
                 bool inseriu = false;
-
-                //primeiro ciclo, para confirmar se o numero a introduzir é novo
-                for (int j = 0; j < lista.Length; j++)
+                
+                //ciclo que confirma os numeros de todos os funcionarios inseridos, para evitar repetições
+                for (int i=0; i<lista.Length;i++)
                 {
-                    if(lista[j].numero == check)
+                    //se o numero introduzido já existe e se o espaço na lista está com valor padrão (0)
+                    if(lista[i].numero == 0 && lista[i].numero != check)
                     {
-                        //Se o número já existe
-                        MessageBox.Show(
-                                "Um funcionário com esse número já existe!",
-                                "Funcionarios",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                        //adiciona o funcionário
+                        addFuncionario(check);
+                        //dá trigger ao booleano para mostrar a mensagem de sucesso
+                        inseriu = true;
+                        //e sai do ciclo for
+                        break;
                     }
                     else
                     {
-                        //segundo ciclo que confirma se existem funcionários com numero 0
-                        for (int i = 0; i < lista.Length; i++)
-                        {
-                            //se o numero introduzido foi diferente do padrão (0)
-                            if (lista[i].numero != 0)
-                            {
-                                //adiciona o funcionário
-                                addFuncionario(check);
-                                //dá trigger ao booleano para mostrar a mensagem de sucesso
-                                inseriu = true;
-                                //e sai do ciclo for
-                                break;
-                            }
-                            else
-                            {
-                                //senão dá trigger á mensagem de erro
-                                inseriu = false;
-
-                            }
-                        }
-                        if (inseriu == false)
-                        {
-                            //Esta mensagem assume que já não existem funcionários com numero "0"
-                            MessageBox.Show(
-                                    "Já têm 10 funcionários!",
-                                    "Funcionarios",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            //mensagem de sucesso
-                            caixaNumero.Text = "";
-                            caixaNome.Text = "";
-                            caixaIdade.Text = "";
-                            MessageBox.Show(
-                                        "Funcionario inserido com sucesso",
-                                        "Funcionarios",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Information);
-                        }
+                        //senão dá trigger á mensagem de erro
+                        inseriu = false;
+                       
                     }
                 }
-                    
+                
+                if(inseriu == false)
+                {
+                    //Esta mensagem é genérica, falta diferenciar entre == 0 e ==check
+                    MessageBox.Show(
+                            "Ocorreu um problema",
+                            "Funcionarios",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                }
+                else
+                {
+                    //mensagem de sucesso
+                    caixaNumero.Text = "";
+                    caixaNome.Text = "";
+                    caixaIdade.Text = "";
+                    MessageBox.Show(
+                                "Funcionario inserido com sucesso",
+                                "Funcionarios",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                }
+                
             }
             else
             {
