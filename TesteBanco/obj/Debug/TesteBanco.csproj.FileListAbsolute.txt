@@ -1,0 +1,14 @@
+K:\Users\Utilizador\source\repos\TesteBanco\bin\Debug\TesteBanco.exe.config
+K:\Users\Utilizador\source\repos\TesteBanco\bin\Debug\TesteBanco.exe
+K:\Users\Utilizador\source\repos\TesteBanco\bin\Debug\TesteBanco.pdb
+K:\Users\Utilizador\source\repos\TesteBanco\bin\Debug\HtmlAgilityPack.dll
+K:\Users\Utilizador\source\repos\TesteBanco\bin\Debug\HtmlAgilityPack.pdb
+K:\Users\Utilizador\source\repos\TesteBanco\bin\Debug\HtmlAgilityPack.xml
+K:\Users\Utilizador\source\repos\TesteBanco\obj\Debug\TesteBanco.csprojAssemblyReference.cache
+K:\Users\Utilizador\source\repos\TesteBanco\obj\Debug\TesteBanco.Form1.resources
+K:\Users\Utilizador\source\repos\TesteBanco\obj\Debug\TesteBanco.Properties.Resources.resources
+K:\Users\Utilizador\source\repos\TesteBanco\obj\Debug\TesteBanco.csproj.GenerateResource.cache
+K:\Users\Utilizador\source\repos\TesteBanco\obj\Debug\TesteBanco.csproj.CoreCompileInputs.cache
+K:\Users\Utilizador\source\repos\TesteBanco\obj\Debug\TesteBanco.csproj.CopyComplete
+K:\Users\Utilizador\source\repos\TesteBanco\obj\Debug\TesteBanco.exe
+K:\Users\Utilizador\source\repos\TesteBanco\obj\Debug\TesteBanco.pdb
